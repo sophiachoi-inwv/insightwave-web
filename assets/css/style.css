@@ -1,0 +1,15 @@
+.logo {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 600;
+}
+
+.hero-title {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.hero-copy {
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 400;
+}
