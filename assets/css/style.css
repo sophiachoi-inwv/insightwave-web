@@ -1,15 +1,82 @@
+:root {
+  --bg: #1B232B;
+  --mint: #BFF4EE;
+  --text: #F7F7FB;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Pretendard', sans-serif;
+}
+
+/* 헤더 */
+.header {
+  padding: 20px 40px;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
 .logo {
   font-family: 'Bricolage Grotesque', sans-serif;
   font-weight: 600;
 }
 
+/* 히어로 */
+.hero {
+  text-align: center;
+  padding: 120px 20px;
+}
+
+.hero-logo {
+  width: 400px;
+  margin-bottom: 40px;
+}
+
 .hero-title {
   font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 72px;
   font-weight: 800;
   letter-spacing: -0.04em;
 }
 
 .hero-copy {
-  font-family: 'Pretendard', sans-serif;
-  font-weight: 400;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+/* 소개 섹션 */
+.section-intro {
+  text-align: center;
+  padding: 120px 20px;
+}
+
+.intro-title {
+  font-size: 48px;
+  font-weight: 800;
+}
+
+.intro-copy {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.intro-keywords {
+  margin-top: 30px;
+}
+
+.intro-keywords span {
+  margin: 0 8px;
+  color: var(--mint);
+}
+
+/* 푸터 */
+.footer {
+  padding: 60px 20px;
+  font-size: 14px;
 }
