@@ -18,7 +18,10 @@
   <!-- 헤더 -->
   <header class="header">
     <div class="container header-inner">
-      <a href="#" class="logo">INSIGHTWAVE</a>
+      <a href="#" class="logo">
+  <img src="./assets/images/logo_symbol_mix.webp" class="logo-icon" />
+  INSIGHTWAVE
+</a>
 
       <nav class="nav">
         <a href="#about" class="nav-link">회사 소개</a>
@@ -74,7 +77,10 @@
   <footer class="footer" id="contact">
     <div class="container">
 
-      <div class="footer-brand">INSIGHTWAVE</div>
+      <div class="footer-brand">
+  <img src="./assets/images/logo_symbol_mix.webp" class="logo-icon" />
+  INSIGHTWAVE
+</div>
 
       <div class="footer-line">
         <span>상호: 주식회사 인사이트웨이브</span>
@@ -96,6 +102,18 @@
 
     </div>
   </footer>
+<script>
+  const introSection = document.querySelector('.section-intro');
 
+  window.addEventListener('scroll', () => {
+    const trigger = introSection.getBoundingClientRect().top;
+
+    if (trigger < window.innerHeight * 0.6) {
+      document.body.classList.add('light-mode');
+    } else {
+      document.body.classList.remove('light-mode');
+    }
+  });
+</script>
 </body>
 </html>
