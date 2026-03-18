@@ -294,3 +294,35 @@ a {
     font-size: 18px;
   }
 }
+/* 배경 전환 */
+body.light-mode {
+  background: #F7F7FB;
+  color: #1B232B;
+}
+
+/* 섹션 전환 자연스럽게 */
+.section-intro {
+  transition: background 0.6s ease, color 0.6s ease;
+}
+
+/* body 전체도 부드럽게 */
+body {
+  transition: background 0.6s ease, color 0.6s ease;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
