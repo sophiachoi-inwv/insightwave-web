@@ -1,17 +1,15 @@
 const header = document.getElementById('siteHeader');
 const hero = document.getElementById('hero');
-const revealItems = document.querySelectorAll('.reveal-item');
+const introSection = document.querySelector('.section-intro');
 
-// header shrink
 window.addEventListener('scroll', () => {
   if (window.scrollY > 24) {
-    header.classList.add('scrolled');
+    header?.classList.add('scrolled');
   } else {
-    header.classList.remove('scrolled');
+    header?.classList.remove('scrolled');
   }
 });
 
-// body tone switch
 const heroObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -23,13 +21,31 @@ const heroObserver = new IntersectionObserver(
     });
   },
   {
-    threshold: 0.18
+    threshold: 0.16
   }
 );
 
 if (hero) heroObserver.observe(hero);
 
-// reveal animation
+if (introSection) {
+  const introObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          introSection.classList.add('in-view');
+        }
+      });
+    },
+    {
+      threshold: 0.18
+    }
+  );
+
+  introObserver.observe(introSection);
+}
+
+const revealTargets = document.querySelectorAll('.reveal-item');
+
 const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -39,17 +55,9 @@ const revealObserver = new IntersectionObserver(
     });
   },
   {
-    threshold: 0.16
+    threshold: 0.14,
+    rootMargin: "0px 0px -10% 0px"
   }
 );
 
-revealItems.forEach((item) => revealObserver.observe(item));
-
-/* 추가된 부분 */
-document.querySelector('.section-intro')?.classList.add('in-view');
-
-document
-  .querySelectorAll(
-    '.build-card, .split-media, .split-content, .banner-panel, .team-panel, .team-side, .proof-card, .cta-panel'
-  )
-  .forEach((el) => revealObserver.observe(el));
+revealTargets.forEach((item) => revealObserver.observe(item));
