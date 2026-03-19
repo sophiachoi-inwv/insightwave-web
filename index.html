@@ -292,53 +292,6 @@
 
     </div>
   </footer>
-<script>
-  const header = document.getElementById('siteHeader');
-  const hero = document.getElementById('hero');
-  const revealItems = document.querySelectorAll('.reveal-item');
-
-  // header shrink
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 24) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-  });
-
-  // body/header tone switch after hero
-  const heroObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          document.body.classList.remove('light-surface');
-        } else {
-          document.body.classList.add('light-surface');
-        }
-      });
-    },
-    {
-      threshold: 0.18
-    }
-  );
-
-  heroObserver.observe(hero);
-
-  // reveal animation for cards / panel
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-        }
-      });
-    },
-    {
-      threshold: 0.16
-    }
-  );
-
-  revealItems.forEach((item) => revealObserver.observe(item));
-</script>
+<script src="./assets/js/main.js"></script>
 </body>
 </html>
