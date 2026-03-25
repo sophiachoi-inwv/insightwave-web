@@ -464,7 +464,7 @@ body.light-surface .nav-link:hover {
 }
 
 /* ------------------------------
-   Intro
+   Intro - Who we are
 ------------------------------ */
 .section-intro {
   padding: 160px 0 172px;
@@ -532,7 +532,7 @@ body.light-surface .nav-link:hover {
 }
 
 /* ------------------------------
-   Split
+   Split - How we think
 ------------------------------ */
 .section-split {
   padding: 160px 0 172px;
@@ -542,9 +542,14 @@ body.light-surface .nav-link:hover {
 
 .split-inner {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  grid-template-columns: 1fr 1.3fr; /* ← 텍스트 영역 더 넓힘 */
+  gap: 80px;
   align-items: center;
+}
+
+.split-title {
+  max-width: 900px;
+  line-height: 1.1;
 }
 
 .split-media,
