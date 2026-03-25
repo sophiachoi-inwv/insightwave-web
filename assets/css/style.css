@@ -860,41 +860,6 @@ body.light-surface .nav-link:hover {
 }
 
 /* ------------------------------
-   SCROLL ANIMATION
------------------------------- */
-
-.section-cta-bg .cta-inner {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.9s var(--ease-out);
-}
-
-.section-cta-bg.in-view .cta-inner {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ------------------------------
-   RESPONSIVE
------------------------------- */
-
-@media (max-width: 768px) {
-  .section-cta-bg {
-    height: 420px;
-  }
-
-  .cta-inner {
-    margin: 0 auto;
-    padding: 0 20px;
-    text-align: center;
-  }
-
-  .cta-title {
-    font-size: 32px;
-  }
-}
-
-/* ------------------------------
    Footer
 ------------------------------ */
 .footer {
