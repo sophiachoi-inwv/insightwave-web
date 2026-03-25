@@ -343,6 +343,113 @@ body.light-surface .nav-link:hover {
 .stagger-4 { transition-delay: 0.28s; }
 
 /* ------------------------------
+   Data Section
+------------------------------ */
+.section-data {
+  padding: 120px 0;
+  background: #ffffff;
+}
+
+.data-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  text-align: center;
+}
+
+.data-title {
+  font-size: 22px;
+  margin-bottom: 60px;
+  color: #1B232B;
+  font-weight: 600;
+}
+
+/* GRID */
+.data-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+/* ITEM */
+.data-item {
+  position: relative;
+  padding: 20px 10px;
+}
+
+/* divider line */
+.data-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 60px;
+  background: rgba(0,0,0,0.08);
+}
+
+/* ICON */
+.data-icon {
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+
+/* NUMBER */
+.data-number {
+  font-size: 42px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: #1B232B;
+}
+
+/* DESC */
+.data-desc {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* 애니메이션 */
+.data-item {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s var(--ease-out);
+}
+
+.data-item.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 반응형 */
+@media (max-width: 1024px) {
+  .data-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 20px;
+  }
+
+  .data-item::after {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .data-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .data-title {
+    font-size: 18px;
+  }
+
+  .data-number {
+    font-size: 32px;
+  }
+}
+
+
+/* ------------------------------
    Intro
 ------------------------------ */
 .section-intro {
