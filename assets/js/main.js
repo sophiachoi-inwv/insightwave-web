@@ -61,3 +61,30 @@ const revealObserver = new IntersectionObserver(
 );
 
 revealTargets.forEach((item) => revealObserver.observe(item));
+
+
+const cards = document.querySelectorAll(".card-item");
+
+window.addEventListener("scroll", () => {
+  const section = document.querySelector(".section-card-stack");
+  const rect = section.getBoundingClientRect();
+  const progress = -rect.top / (section.offsetHeight - window.innerHeight);
+
+  const index = Math.min(cards.length - 1, Math.floor(progress * cards.length));
+
+  cards.forEach((card, i) => {
+    card.classList.toggle("active", i === index);
+  });
+});
+
+const reveals = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("in-view");
+    }
+  });
+}, { threshold: 0.2 });
+
+reveals.forEach(el => observer.observe(el));
