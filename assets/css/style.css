@@ -752,80 +752,130 @@ body.light-surface .nav-link:hover {
   color: var(--text-dark-soft);
 }
 
-/* ==============================
-   CTA (Background Version)
-============================== */
+/* ------------------------------
+   CTA BACKGROUND SECTION (FINAL)
+------------------------------ */
 
 .section-cta-bg {
   position: relative;
-  height: 90vh;
 
-  background-image: url("../images/office-bg.jpg");
+  height: 520px; /* 핵심: 높이 줄임 */
+  display: flex;
+  align-items: center;
+
+  background-image: url('../images/office-bg.webp'); /* ← webp 이미지 */
   background-size: cover;
-  background-position: right center;
+  background-position: top center; /* ← 위 기준 크롭 */
+  background-repeat: no-repeat;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.cta-overlay {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    to right,
-    rgba(0,0,0,0.7) 0%,
-    rgba(0,0,0,0.4) 40%,
-    rgba(0,0,0,0.2) 100%
-  );
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.cta-inner {
-  text-align: center;
   color: #fff;
-  max-width: 800px;
-  padding: 0 20px;
+  overflow: hidden;
 }
 
+/* 어두운 오버레이 */
+.section-cta-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    90deg,
+    rgba(0,0,0,0.5) 0%,
+    rgba(0,0,0,0.3) 30%,
+    rgba(0,0,0,0.15) 60%,
+    rgba(0,0,0,0.25) 100%
+  );
+}
+
+/* 컨텐츠 */
+.cta-inner {
+  position: relative;
+  z-index: 2;
+
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: 120px;
+
+  text-align: left;
+}
+
+/* 텍스트 */
 .cta-kicker {
-  font-size: 14px;
-  color: rgba(255,255,255,0.6);
-  margin-bottom: 16px;
+  font-size: 13px;
+  color: #9FE3DB;
+  margin-bottom: 14px;
 }
 
 .cta-title {
-  font-size: clamp(40px, 5vw, 72px);
+  font-size: clamp(36px, 4vw, 56px);
   font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 20px;
+  line-height: 1.2;
+  margin: 0 0 18px;
 }
 
-.cta-desc {
-  font-size: 18px;
+.cta-copy {
+  font-size: 16px;
   line-height: 1.6;
-  margin-bottom: 40px;
+  margin-bottom: 28px;
   color: rgba(255,255,255,0.85);
 }
 
+/* 버튼 */
 .cta-button {
   display: inline-block;
   padding: 14px 28px;
-  background: #BFF4EE;
+
+  background: #9FE3DB;
   color: #1B232B;
+
   border-radius: 999px;
   font-weight: 600;
+  font-size: 14px;
+
   text-decoration: none;
   transition: all 0.3s ease;
 }
 
 .cta-button:hover {
   transform: translateY(-2px);
-  background: #9ee6df;
+  background: #b4efe8;
 }
+
+/* ------------------------------
+   SCROLL ANIMATION
+------------------------------ */
+
+.section-cta-bg .cta-inner {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.9s var(--ease-out);
+}
+
+.section-cta-bg.in-view .cta-inner {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ------------------------------
+   RESPONSIVE
+------------------------------ */
+
+@media (max-width: 768px) {
+  .section-cta-bg {
+    height: 420px;
+  }
+
+  .cta-inner {
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  .cta-title {
+    font-size: 32px;
+  }
+}
+
 /* ------------------------------
    Footer
 ------------------------------ */
