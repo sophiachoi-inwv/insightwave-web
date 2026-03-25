@@ -389,12 +389,6 @@ body.light-surface .nav-link:hover {
   background: rgba(0,0,0,0.08);
 }
 
-/* ICON */
-.data-icon {
-  font-size: 28px;
-  margin-bottom: 16px;
-}
-
 /* NUMBER */
 .data-number {
   font-size: 42px;
@@ -447,7 +441,27 @@ body.light-surface .nav-link:hover {
     font-size: 32px;
   }
 }
+/* ------------------------------
+   Data Icon (PNG)
+------------------------------ */
+.data-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 18px;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(191, 244, 238, 0.12);
+  border-radius: 14px;
+}
+
+.data-icon img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
 
 /* ------------------------------
    Intro
