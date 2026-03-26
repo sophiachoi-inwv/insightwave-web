@@ -63,6 +63,10 @@ const revealObserver = new IntersectionObserver(
 revealTargets.forEach((item) => revealObserver.observe(item));
 
 
+/* =========================
+   CARD STACK FIX (정상버전)
+========================= */
+
 const section = document.querySelector(".section-card-stack");
 const items = document.querySelectorAll(".stack-item");
 const images = document.querySelectorAll(".stack-image img");
@@ -71,23 +75,27 @@ window.addEventListener("scroll", () => {
   if (!section) return;
 
   const rect = section.getBoundingClientRect();
-  const scrollY = window.scrollY;
-  const offsetTop = section.offsetTop;
-  const sectionHeight = section.offsetHeight;
 
-  const progress = (scrollY - offsetTop) / sectionHeight;
+  // 섹션 전체 스크롤 길이 계산
+  const total = section.offsetHeight - window.innerHeight;
 
-  if (progress >= 0 && progress <= 1) {
-    const index = Math.floor(progress * items.length);
+  // 현재 섹션 안에서 스크롤 위치
+  const scroll = Math.min(Math.max(-rect.top, 0), total);
 
-    items.forEach((el, i) => {
-      el.classList.toggle("active", i === index);
-    });
+  const progress = scroll / total;
 
-    images.forEach((el, i) => {
-      el.classList.toggle("active", i === index);
-    });
-  }
+  // index 계산 (안전하게 clamp)
+  let index = Math.floor(progress * items.length);
+  index = Math.max(0, Math.min(items.length - 1, index));
+
+  // 상태 업데이트
+  items.forEach((el, i) => {
+    el.classList.toggle("active", i === index);
+  });
+
+  images.forEach((el, i) => {
+    el.classList.toggle("active", i === index);
+  });
 });
 
 
