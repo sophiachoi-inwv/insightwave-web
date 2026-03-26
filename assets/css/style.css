@@ -551,7 +551,7 @@ body.light-surface .nav-link:hover {
 
 .section-split-bg {
   position: relative;
-  height: 640px; /* 🔥 기존보다 키움 */
+  height: 1000px; /* 🔥 기존보다 키움 */
 
   background: url("../images/mid-section-bg.webp") top center / cover no-repeat;
 
