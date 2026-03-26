@@ -803,36 +803,42 @@ body.light-surface .nav-link:hover {
 
 .section-cta-bg {
   position: relative;
-  height: 420px;
+  min-height: 100vh;
+
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background: url("./assets/images/office-bg.webp") top center / cover no-repeat;
+  text-align: center;
+  overflow: hidden;
 }
 
 .section-cta-bg::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(20, 30, 40, 0.55);
+
+  background: url("../images/cta-bg.webp") center / cover no-repeat;
+
+  z-index: 0;
+}
+
+.section-cta-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(10,18,26,0.4),
+    rgba(10,18,26,0.7)
+  );
 }
 
 .cta-inner {
   position: relative;
   z-index: 2;
-  text-align: center;
-  color: white;
-}
-
-.cta-title {
-  font-size: 48px;
-  font-weight: 800;
-}
-
-.cta-copy {
-  margin-top: 16px;
-  opacity: 0.8;
+  color: #fff;
 }
 
 /* ------------------------------
