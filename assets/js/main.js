@@ -71,20 +71,23 @@ window.addEventListener("scroll", () => {
   if (!section) return;
 
   const rect = section.getBoundingClientRect();
-  const total = section.offsetHeight - window.innerHeight;
+  const scrollY = window.scrollY;
+  const offsetTop = section.offsetTop;
+  const sectionHeight = section.offsetHeight;
 
-  const scroll = Math.min(Math.max(-rect.top, 0), total);
-  const progress = scroll / total;
+  const progress = (scrollY - offsetTop) / sectionHeight;
 
-  const index = Math.floor(progress * items.length);
+  if (progress >= 0 && progress <= 1) {
+    const index = Math.floor(progress * items.length);
 
-  items.forEach((el, i) => {
-    el.classList.toggle("active", i === index);
-  });
+    items.forEach((el, i) => {
+      el.classList.toggle("active", i === index);
+    });
 
-  images.forEach((el, i) => {
-    el.classList.toggle("active", i === index);
-  });
+    images.forEach((el, i) => {
+      el.classList.toggle("active", i === index);
+    });
+  }
 });
 
 
