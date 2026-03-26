@@ -552,28 +552,53 @@ body.light-surface .nav-link:hover {
   position: relative;
   height: 520px;
 
-  background: url("./assets/images/mid-section-bg.webp") top center / cover no-repeat;
+  background: url("../images/mid-section-bg.webp") top center / cover no-repeat;
+
+  display: flex;
+  align-items: center;
 }
 
-.split-overlay {
+/* 어두운 오버레이 (텍스트 살리기) */
+.section-split-bg::before {
+  content: "";
   position: absolute;
   inset: 0;
-  background: rgba(255,255,255,0.85);
+  background: rgba(20, 30, 40, 0.55);
 }
 
+/* 컨텐츠 */
 .split-inner {
   position: relative;
   z-index: 2;
-  height: 100%;
-  display: flex;
-  align-items: center;
+  width: 100%;
 }
 
 .split-content {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 40px;
 }
 
+/* 텍스트 스타일 통일 */
+.split-kicker {
+  color: rgba(255,255,255,0.6);
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.split-title {
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.split-copy {
+  color: rgba(255,255,255,0.8);
+  font-size: 18px;
+  line-height: 1.6;
+}
 /* ------------------------------
    Build
 ------------------------------ */
