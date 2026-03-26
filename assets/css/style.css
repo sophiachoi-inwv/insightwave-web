@@ -611,39 +611,124 @@ body.light-surface .nav-link:hover {
 /* ------------------------------
    Build
 ------------------------------ */
-/* 카드 스택 */
-.section-card-stack {
-  height: 300vh;
+/* =========================
+   SPLIT BACKGROUND (상단)
+========================= */
+.section-split-bg {
   position: relative;
+  padding: 180px 20px 120px;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+}
+
+.section-split-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../images/mid-section-bg.webp") top center / cover no-repeat;
+  z-index: 0;
+}
+
+.section-split-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(10,18,26,0.75);
+  z-index: 1;
+}
+
+.split-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.split-kicker {
+  color: #bff4ee;
+  margin-bottom: 16px;
+}
+
+.split-title {
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.split-copy {
+  font-size: 18px;
+  color: rgba(255,255,255,0.85);
+}
+
+
+/* =========================
+   CARD STACK (핵심)
+========================= */
+
+.section-card-stack {
+  position: relative;
+  height: 400vh; /* 👈 중요: 스크롤 공간 */
 }
 
 .card-stack-inner {
   position: sticky;
-  top: 120px;
-  height: 500px;
+  top: 0;
+
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .card-item {
   position: absolute;
-  width: 520px;
-  left: 50%;
-  transform: translateX(-50%) scale(0.9);
-  background: #f5f7f9;
-  padding: 40px;
-  border-radius: 24px;
+
+  width: 420px;
+  padding: 40px 30px;
+
+  background: #fff;
+  border-radius: 28px;
+
+  text-align: center;
+
+  box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+
   opacity: 0;
+  transform: translateY(60px) scale(0.95);
+
   transition: all 0.6s ease;
 }
 
-.card-item.active {
-  opacity: 1;
-  transform: translateX(-50%) scale(1);
-  z-index: 2;
+.card-item img {
+  width: 80px;
+  margin-bottom: 20px;
 }
 
-.card-item img {
-  width: 120px;
-  margin-bottom: 20px;
+.card-item h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.card-item p {
+  font-size: 14px;
+  color: #555;
+}
+
+/* 👇 활성 카드 */
+.card-item.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  z-index: 10;
+}
+
+/* 이전 카드 살짝 남기기 */
+.card-item.prev {
+  opacity: 0.3;
+  transform: scale(0.9);
+  z-index: 5;
 }
 
 /* ------------------------------
