@@ -98,3 +98,49 @@ if (cards.length && section) {
     }
   });
 }
+
+
+
+const counters = document.querySelectorAll(".data-number");
+const dataSection = document.querySelector(".section-data");
+
+let counted = false;
+
+const runCounter = () => {
+  counters.forEach(counter => {
+    const target = +counter.getAttribute("data-target");
+    const suffix = counter.textContent.replace(/[0-9]/g, ""); // +, 억, 만, %
+
+    let current = 0;
+    const duration = 1200;
+    const increment = target / (duration / 16);
+
+    const update = () => {
+      current += increment;
+
+      if (current < target) {
+        counter.textContent = Math.floor(current) + suffix;
+        requestAnimationFrame(update);
+      } else {
+        counter.textContent = target + suffix;
+      }
+    };
+
+    update();
+  });
+};
+
+const dataObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !counted) {
+      runCounter();
+      counted = true;
+    }
+  });
+}, {
+  threshold: 0.4
+});
+
+if (dataSection) {
+  dataObserver.observe(dataSection);
+}
