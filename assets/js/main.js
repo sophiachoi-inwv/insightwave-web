@@ -66,38 +66,26 @@ revealTargets.forEach((item) => revealObserver.observe(item));
 const cards = document.querySelectorAll(".card-item");
 const section = document.querySelector(".section-card-stack");
 
-if (cards.length && section) {
+window.addEventListener("scroll", () => {
+  const rect = section.getBoundingClientRect();
 
-  // 👉 초기 상태 (첫 카드 강제 활성화)
-  cards[0].classList.add("active");
+  const progress = -rect.top / (section.offsetHeight - window.innerHeight);
 
-  window.addEventListener("scroll", () => {
-    const rect = section.getBoundingClientRect();
+  let index = Math.floor(progress * cards.length);
+  index = Math.max(0, Math.min(cards.length - 1, index));
 
-    // 👉 화면 안에 들어왔을 때만 실행
-    if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+  cards.forEach((card, i) => {
+    card.classList.remove("active", "prev");
 
-      const progress = Math.min(
-        1,
-        Math.max(0, -rect.top / (section.offsetHeight - window.innerHeight))
-      );
+    if (i === index) {
+      card.classList.add("active");
+    }
 
-      const index = Math.min(
-        cards.length - 1,
-        Math.floor(progress * cards.length)
-      );
-
-      cards.forEach((card, i) => {
-        if (i === index) {
-          card.classList.add("active");
-        } else {
-          card.classList.remove("active");
-        }
-      });
-
+    if (i === index - 1) {
+      card.classList.add("prev");
     }
   });
-}
+});
 
 
 
