@@ -837,6 +837,18 @@ body.light-surface .nav-link:hover {
   );
 }
 
+.section-team .team-title {
+  color: #0f1720; /* 🔥 진한 다크 */
+}
+
+.section-team .team-sub {
+  color: #4b5563;
+}
+
+.section-team .team-kicker {
+  color: #bff4ee;
+}
+
 /* =========================
    CTA SECTION FIX
 ========================= */
