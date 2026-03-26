@@ -553,7 +553,7 @@ body.light-surface .nav-link:hover {
   position: relative;
   height: 1000px; /* 🔥 기존보다 키움 */
 
-  background: url("../images/mid-section-bg.webp") top center / cover no-repeat;
+  background: url("../images/how-we-think.webp") top center / cover no-repeat;
 
   display: flex;
   align-items: center;
