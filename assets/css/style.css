@@ -820,6 +820,23 @@ body.light-surface .nav-link:hover {
   color: #666;
 }
 
+.team-main-text strong {
+  color: #ffffff; /* 유지 */
+}
+
+.team-main-text p {
+  color: rgba(255,255,255,0.85); /* 🔥 더 진하게 */
+}
+
+/* 🔥 카드 전체 대비 강화 */
+.team-main-card {
+  background: linear-gradient(
+    160deg,
+    rgba(20, 32, 44, 0.95),
+    rgba(36, 56, 71, 0.95)
+  );
+}
+
 /* =========================
    CTA SECTION FIX
 ========================= */
