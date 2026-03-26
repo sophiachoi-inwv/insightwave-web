@@ -611,6 +611,11 @@ body.light-surface .nav-link:hover {
 /* =========================
    STACK SECTION (개선버전)
 ========================= */
+
+/* =========================
+   CARD STACK SECTION (FULL)
+========================= */
+
 .section-card-stack {
   position: relative;
   height: 400vh;
@@ -618,7 +623,7 @@ body.light-surface .nav-link:hover {
   background: #0b1e2a;
 }
 
-/* 🌊 wave background */
+/* 🌊 Wave Gradient Background */
 .section-card-stack::before {
   content: "";
   position: absolute;
@@ -633,9 +638,10 @@ body.light-surface .nav-link:hover {
   );
 
   background-size: 300% 300%;
-  opacity: 0.18;
+  opacity: 0.2;
 
   animation: waveMove 14s ease-in-out infinite;
+
   z-index: 0;
 }
 
@@ -645,7 +651,10 @@ body.light-surface .nav-link:hover {
   100% { background-position: 0% 50%; }
 }
 
-/* 콘텐츠 위로 올리기 */
+/* =========================
+   LAYOUT
+========================= */
+
 .stack-inner {
   position: sticky;
   top: 0;
@@ -662,7 +671,10 @@ body.light-surface .nav-link:hover {
   z-index: 2;
 }
 
-/* 텍스트 */
+/* =========================
+   LEFT TEXT
+========================= */
+
 .stack-text {
   width: 45%;
   position: relative;
@@ -671,10 +683,11 @@ body.light-surface .nav-link:hover {
 .stack-item {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  left: 0;
 
-  opacity: 0;
   transform: translateY(40px);
+  opacity: 0;
+
   transition: all 0.6s ease;
 }
 
@@ -685,16 +698,22 @@ body.light-surface .nav-link:hover {
 
 .stack-item h3 {
   font-size: 42px;
-  color: #fff;
+  font-weight: 700;
+  color: #ffffff;
   margin-bottom: 16px;
+  line-height: 1.3;
 }
 
 .stack-item p {
-  color: #bbb;
   font-size: 18px;
+  color: #b0bcc8;
+  line-height: 1.6;
 }
 
-/* 이미지 */
+/* =========================
+   RIGHT IMAGE
+========================= */
+
 .stack-image {
   width: 45%;
   position: relative;
@@ -703,20 +722,60 @@ body.light-surface .nav-link:hover {
 .stack-image img {
   position: absolute;
   right: 0;
+  top: 50%;
+
+  transform: translateY(-50%) scale(0.9);
+  opacity: 0;
+
   width: 100%;
   max-width: 420px;
 
   border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 
-  opacity: 0;
-  transform: scale(0.9);
   transition: all 0.6s ease;
 }
 
 .stack-image img.active {
   opacity: 1;
-  transform: scale(1);
+  transform: translateY(-50%) scale(1);
+  z-index: 3;
 }
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .stack-inner {
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    padding: 0 20px;
+  }
+
+  .stack-text,
+  .stack-image {
+    width: 100%;
+  }
+
+  .stack-item {
+    position: relative;
+    top: auto;
+    transform: none;
+  }
+
+  .stack-item.active {
+    transform: none;
+  }
+
+  .stack-image img {
+    position: relative;
+    top: auto;
+    transform: scale(1);
+  }
+}
+
 /* =========================
    TEAM SECTION (리디자인)
 ========================= */
