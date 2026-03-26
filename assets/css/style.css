@@ -611,9 +611,6 @@ body.light-surface .nav-link:hover {
 /* =========================
    STACK SECTION (개선버전)
 ========================= */
-/* =========================
-   CARD STACK FINAL
-========================= */
 
 .section-card-stack {
   position: relative;
@@ -719,14 +716,52 @@ body.light-surface .nav-link:hover {
   }
 }
 
+.stack-item h3 {
+  font-size: 44px; /* 🔥 키움 */
+}
+
+.stack-item p {
+  font-size: 18px;
+  color: rgba(255,255,255,0.78);
+}
+
+/* 이미지 더 강조 */
+.stack-image img.active {
+  transform: scale(1.02);
+}
+
 /* =========================
    TEAM SECTION (리디자인)
 ========================= */
 .section-team {
-  padding: 140px 20px;
+  padding: 160px 20px;
   background: #f5f7fa;
 }
 
+/* 헤더 */
+.team-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.team-kicker {
+  color: #bff4ee;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.team-title {
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.team-sub {
+  color: #555;
+  line-height: 1.7;
+}
+
+/* 레이아웃 */
 .team-layout {
   max-width: 1200px;
   margin: 0 auto;
@@ -736,7 +771,7 @@ body.light-surface .nav-link:hover {
   gap: 60px;
 }
 
-/* 왼쪽 카드 강화 */
+/* 왼쪽 카드 */
 .team-main-card {
   background: linear-gradient(160deg, #16232f, #243847);
   border-radius: 32px;
@@ -745,36 +780,45 @@ body.light-surface .nav-link:hover {
   box-shadow: 0 40px 100px rgba(0,0,0,0.25);
 }
 
-.team-main-card img {
-  width: 100%;
-  border-radius: 20px;
-  margin-bottom: 28px;
-}
-
 .team-main-text strong {
+  font-size: 22px;
   color: #fff;
-  font-size: 20px;
 }
 
 .team-main-text p {
   color: rgba(255,255,255,0.7);
+  font-size: 18px;
 }
 
-/* 오른쪽 카드 */
+/* 오른쪽 */
+.team-side {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .team-item {
   background: #fff;
   border-radius: 20px;
-  padding: 26px;
+  padding: 28px;
 
   border: 1px solid rgba(0,0,0,0.05);
+
   transition: all 0.25s ease;
 }
 
 .team-item:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
 }
 
+.team-item h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.team-item p {
+  color: #666;
+}
 
 /* =========================
    CTA SECTION FIX
