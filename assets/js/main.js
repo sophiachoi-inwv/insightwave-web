@@ -63,27 +63,25 @@ const revealObserver = new IntersectionObserver(
 revealTargets.forEach((item) => revealObserver.observe(item));
 
 
-const cards = document.querySelectorAll(".card-item");
 const section = document.querySelector(".section-card-stack");
+const texts = document.querySelectorAll(".stack-item");
+const images = document.querySelectorAll(".stack-image img");
 
 window.addEventListener("scroll", () => {
   const rect = section.getBoundingClientRect();
 
-  const progress = -rect.top / (section.offsetHeight - window.innerHeight);
+  const progress =
+    -rect.top / (section.offsetHeight - window.innerHeight);
 
-  let index = Math.floor(progress * cards.length);
-  index = Math.max(0, Math.min(cards.length - 1, index));
+  let index = Math.floor(progress * texts.length);
+  index = Math.max(0, Math.min(texts.length - 1, index));
 
-  cards.forEach((card, i) => {
-    card.classList.remove("active", "prev");
+  texts.forEach((el, i) => {
+    el.classList.toggle("active", i === index);
+  });
 
-    if (i === index) {
-      card.classList.add("active");
-    }
-
-    if (i === index - 1) {
-      card.classList.add("prev");
-    }
+  images.forEach((el, i) => {
+    el.classList.toggle("active", i === index);
   });
 });
 
