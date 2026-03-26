@@ -633,6 +633,45 @@ body.light-surface .nav-link:hover {
   padding: 0 20px;
 }
 
+.section-card-stack {
+  height: 400vh;
+  position: relative;
+  overflow: hidden;
+
+  background: linear-gradient(120deg, #0f1720, #0b1e2a);
+}
+
+.section-card-stack::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    120deg,
+    #50a2ca,
+    #7aa6d1,
+    #a98bd3,
+    #50a2ca
+  );
+
+  background-size: 300% 300%;
+  opacity: 0.15;
+
+  animation: waveMove 12s ease-in-out infinite;
+}
+
+@keyframes waveMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 60%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 /* =========================
    LEFT TEXT
 ========================= */
