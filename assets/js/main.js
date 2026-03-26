@@ -68,6 +68,8 @@ const texts = document.querySelectorAll(".stack-item");
 const images = document.querySelectorAll(".stack-image img");
 
 window.addEventListener("scroll", () => {
+  if (!section) return;
+
   const rect = section.getBoundingClientRect();
 
   const progress =
