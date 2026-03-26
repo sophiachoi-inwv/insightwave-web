@@ -548,9 +548,10 @@ body.light-surface .nav-link:hover {
 /* ------------------------------
    Split - How we think
 ------------------------------ */
+
 .section-split-bg {
   position: relative;
-  height: 520px;
+  height: 640px; /* 🔥 기존보다 키움 */
 
   background: url("../images/mid-section-bg.webp") top center / cover no-repeat;
 
@@ -558,12 +559,12 @@ body.light-surface .nav-link:hover {
   align-items: center;
 }
 
-/* 어두운 오버레이 (텍스트 살리기) */
+/* 🔥 더 진한 오버레이 */
 .section-split-bg::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(20, 30, 40, 0.55);
+  background: rgba(10, 18, 26, 0.72); /* 🔥 더 어둡게 */
 }
 
 /* 컨텐츠 */
@@ -579,26 +580,34 @@ body.light-surface .nav-link:hover {
   padding: 0 40px;
 }
 
-/* 텍스트 스타일 통일 */
+/* 🔥 브랜드 컬러 적용 */
 .split-kicker {
-  color: rgba(255,255,255,0.6);
+  color: #bff4ee;
   font-size: 14px;
   margin-bottom: 16px;
+  letter-spacing: 0.04em;
 }
 
+/* 타이틀 */
 .split-title {
-  font-size: clamp(36px, 4vw, 56px);
+  font-size: clamp(40px, 4.5vw, 60px);
   font-weight: 800;
   color: #ffffff;
   line-height: 1.2;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
+/* 본문 */
 .split-copy {
-  color: rgba(255,255,255,0.8);
+  color: rgba(255,255,255,0.82);
   font-size: 18px;
-  line-height: 1.6;
+  line-height: 1.7;
 }
+
+.section-split-bg {
+  background-attachment: fixed;
+}
+
 /* ------------------------------
    Build
 ------------------------------ */
