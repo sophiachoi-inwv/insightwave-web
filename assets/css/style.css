@@ -818,7 +818,7 @@ body.light-surface .nav-link:hover {
   position: absolute;
   inset: 0;
 
-  background: url("../images/cta-bg.webp") center / cover no-repeat;
+  background: url("../images/office-bg.webp") center / cover no-repeat;
 
   z-index: 0;
 }
