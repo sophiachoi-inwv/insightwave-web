@@ -64,27 +64,37 @@ revealTargets.forEach((item) => revealObserver.observe(item));
 
 
 const cards = document.querySelectorAll(".card-item");
+const section = document.querySelector(".section-card-stack");
 
-window.addEventListener("scroll", () => {
-  const section = document.querySelector(".section-card-stack");
-  const rect = section.getBoundingClientRect();
-  const progress = -rect.top / (section.offsetHeight - window.innerHeight);
+if (cards.length && section) {
 
-  const index = Math.min(cards.length - 1, Math.floor(progress * cards.length));
+  // 👉 초기 상태 (첫 카드 강제 활성화)
+  cards[0].classList.add("active");
 
-  cards.forEach((card, i) => {
-    card.classList.toggle("active", i === index);
-  });
-});
+  window.addEventListener("scroll", () => {
+    const rect = section.getBoundingClientRect();
 
-const reveals = document.querySelectorAll(".reveal");
+    // 👉 화면 안에 들어왔을 때만 실행
+    if (rect.top <= window.innerHeight && rect.bottom >= 0) {
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("in-view");
+      const progress = Math.min(
+        1,
+        Math.max(0, -rect.top / (section.offsetHeight - window.innerHeight))
+      );
+
+      const index = Math.min(
+        cards.length - 1,
+        Math.floor(progress * cards.length)
+      );
+
+      cards.forEach((card, i) => {
+        if (i === index) {
+          card.classList.add("active");
+        } else {
+          card.classList.remove("active");
+        }
+      });
+
     }
   });
-}, { threshold: 0.2 });
-
-reveals.forEach(el => observer.observe(el));
+}
