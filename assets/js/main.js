@@ -67,40 +67,43 @@ revealTargets.forEach((item) => revealObserver.observe(item));
    CARD STACK FIX (정상버전)
 ========================= */
 
-const section = document.querySelector(".section-card-stack");
-const items = document.querySelectorAll(".stack-item");
-const images = document.querySelectorAll(".stack-image img");
+window.addEventListener("DOMContentLoaded", () => {
 
-function updateStack() {
-  if (!section) return;
+  const section = document.querySelector(".section-card-stack");
+  const items = document.querySelectorAll(".stack-item");
+  const images = document.querySelectorAll(".stack-image img");
 
-  const rect = section.getBoundingClientRect();
-  const total = section.offsetHeight - window.innerHeight;
+  function updateStack() {
+    if (!section) return;
 
-  // 현재 섹션 내 스크롤 위치
-  let scroll = -rect.top;
+    const rect = section.getBoundingClientRect();
+    const total = section.offsetHeight - window.innerHeight;
 
-  // clamp (핵심)
-  scroll = Math.max(0, Math.min(scroll, total));
+    let scroll = -rect.top;
+    scroll = Math.max(0, Math.min(scroll, total));
 
-  const progress = scroll / total;
+    const progress = scroll / total;
 
-  // index 계산 (항상 실행)
-  let index = Math.floor(progress * items.length);
-  index = Math.max(0, Math.min(items.length - 1, index));
+    let index = Math.floor(progress * items.length);
+    index = Math.max(0, Math.min(items.length - 1, index));
 
-  items.forEach((el, i) => {
-    el.classList.toggle("active", i === index);
-  });
+    items.forEach((el, i) => {
+      el.classList.toggle("active", i === index);
+    });
 
-  images.forEach((el, i) => {
-    el.classList.toggle("active", i === index);
-  });
-}
+    images.forEach((el, i) => {
+      el.classList.toggle("active", i === index);
+    });
+  }
 
-// 🔥 scroll + 초기 실행 둘 다 필요
-window.addEventListener("scroll", updateStack);
-window.addEventListener("load", updateStack);
+  window.addEventListener("scroll", updateStack);
+  updateStack(); // 🔥 초기 실행
+
+});
+
+/* =========================
+   데이터 넘버
+========================= */
 
 
 const counters = document.querySelectorAll(".data-number");
