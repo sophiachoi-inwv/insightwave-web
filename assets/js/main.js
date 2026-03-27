@@ -71,24 +71,24 @@ const section = document.querySelector(".section-card-stack");
 const items = document.querySelectorAll(".stack-item");
 const images = document.querySelectorAll(".stack-image img");
 
-window.addEventListener("scroll", () => {
+function updateStack() {
   if (!section) return;
 
   const rect = section.getBoundingClientRect();
-
-  // 섹션 전체 스크롤 길이 계산
   const total = section.offsetHeight - window.innerHeight;
 
-  // 현재 섹션 안에서 스크롤 위치
-  const scroll = Math.min(Math.max(-rect.top, 0), total);
+  // 현재 섹션 내 스크롤 위치
+  let scroll = -rect.top;
+
+  // clamp (핵심)
+  scroll = Math.max(0, Math.min(scroll, total));
 
   const progress = scroll / total;
 
-  // index 계산 (안전하게 clamp)
+  // index 계산 (항상 실행)
   let index = Math.floor(progress * items.length);
   index = Math.max(0, Math.min(items.length - 1, index));
 
-  // 상태 업데이트
   items.forEach((el, i) => {
     el.classList.toggle("active", i === index);
   });
@@ -96,7 +96,11 @@ window.addEventListener("scroll", () => {
   images.forEach((el, i) => {
     el.classList.toggle("active", i === index);
   });
-});
+}
+
+// 🔥 scroll + 초기 실행 둘 다 필요
+window.addEventListener("scroll", updateStack);
+window.addEventListener("load", updateStack);
 
 
 const counters = document.querySelectorAll(".data-number");
