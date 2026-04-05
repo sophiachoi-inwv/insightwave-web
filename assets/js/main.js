@@ -75,6 +75,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   function updateStack() {
     if (!section) return;
+    if (window.innerWidth <= 768) return;
 
     const rect = section.getBoundingClientRect();
     const total = section.offsetHeight - window.innerHeight;
