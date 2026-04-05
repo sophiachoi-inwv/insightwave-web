@@ -23,24 +23,25 @@
   <header class="header">
     <div class="container header-inner">
       <a href="#" class="logo">
-  <img src="./assets/images/logo_symbol_mix.webp" class="logo-icon" />
+  <img src="./assets/images/logo_symbol_mix.webp" class="logo-icon" alt="" />
   INSIGHTWAVE
 </a>
 
-      <nav class="nav">
+      <button class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav" aria-label="주 내비게이션">
         <a href="#about" class="nav-link">회사 소개</a>
-        <a href="https://eduplex.inwv.co" target="_blank" class="nav-link">INKROOM ↗</a>
-        <a href="https://1bpluschool.com/" target="_blank" class="nav-link">자사몰 사관학교 ↗</a>
+        <a href="https://www.inkroom.com" target="_blank" rel="noopener noreferrer" class="nav-link">INKROOM ↗</a>
+        <a href="https://1bpluschool.com/" target="_blank" rel="noopener noreferrer" class="nav-link">자사몰 사관학교 ↗</a>
       </nav>
 
-      <a 
-  href="https://www.notion.so/inwv/3284edaa73df8123aecefe3d1eb259df?pvs=106"
-  target="_blank"
-  rel="noopener noreferrer"
-  class="nav-cta"
->
+      <button class="nav-cta" data-modal="contact">
   채용 및 파트너 문의
-</a>
+</button>
     </div>
   </header>
 
@@ -77,13 +78,13 @@
 <!-- 데이터 섹션 -->
 <section class="section-data">
   <div class="data-inner">
-    <h3 class="data-title">결과로 검증된 실행 구조</h3>
+    <h2 class="data-title">결과로 검증된 실행 구조</h2>
 
     <div class="data-grid">
 
       <div class="data-item reveal-item">
         <div class="data-icon">
-  <img src="./assets/images/case-study.png" alt="">
+  <img src="./assets/images/case-study.png" alt="교육 운영 사례 아이콘">
 </div>
         <div class="data-number" data-target="100">0+</div>
         <div class="data-desc">구조화된 교육 운영 사례</div>
@@ -91,7 +92,7 @@
 
       <div class="data-item reveal-item">
         <div class="data-icon">
-  <img src="./assets/images/sales-growth.png" alt="">
+  <img src="./assets/images/sales-growth.png" alt="매출 성장 아이콘">
 </div>
         <div class="data-number" data-target="441">0억+</div>
         <div class="data-desc">고객사 누적 매출</div>
@@ -99,7 +100,7 @@
 
       <div class="data-item reveal-item">
         <div class="data-icon">
-       <img src="./assets/images/data.png" alt="">
+       <img src="./assets/images/data.png" alt="학습 데이터 아이콘">
 </div>
         <div class="data-number" data-target="3000">0만+</div>
         <div class="data-desc">누적 학습 및 행동 데이터</div>
@@ -107,7 +108,7 @@
 
       <div class="data-item reveal-item">
         <div class="data-icon">
-        <img src="./assets/images/data.png" alt="">
+        <img src="./assets/images/data.png" alt="만족도 아이콘">
 </div>
         <div class="data-number" data-target="97">0%</div>
         <div class="data-desc">결과 기반 만족도</div>
@@ -140,35 +141,33 @@
 <section class="section-card-stack">
   <div class="stack-inner">
 
-    <!-- LEFT TEXT -->
     <div class="stack-text">
       <div class="stack-item active">
-        <h3>선순환 설계 (Growth Loop)</h3>
+        <h3>선순환 설계<br>(Growth Loop)</h3>
         <p>학습 → 실행 → 성과 → 재학습이 이어지는 구조를 만듭니다.</p>
       </div>
 
       <div class="stack-item">
-        <h3>실행 중심 (Action First)</h3>
+        <h3>실행 중심<br>(Action First)</h3>
         <p>이해가 아니라 행동을 만드는 것이 우리의 목적입니다.</p>
       </div>
 
       <div class="stack-item">
-        <h3>성과 책임 (Outcome Ownership)</h3>
+        <h3>성과 책임<br>(Outcome Ownership)</h3>
         <p>학습 완료가 아니라 성과 창출이 기준이 됩니다.</p>
       </div>
 
       <div class="stack-item">
-        <h3>환경 중심 (Environment First)</h3>
+        <h3>환경 중심<br>(Environment First)</h3>
         <p>우리는 행동과 성과를 유도하는 교육 환경을 설계합니다.</p>
       </div>
     </div>
 
-    <!-- RIGHT IMAGE -->
     <div class="stack-image">
-      <img src="./assets/images/card-1.webp" class="active" />
-      <img src="./assets/images/card-2.webp" />
-      <img src="./assets/images/card-3.webp" />
-      <img src="./assets/images/card-4.webp" />
+      <img src="./assets/images/card-1.webp" class="active" alt="선순환 설계" />
+      <img src="./assets/images/card-2.jpg" alt="실행 중심" />
+      <img src="./assets/images/card-3.jpg" alt="성과 책임" />
+      <img src="./assets/images/card-4.jpg" alt="환경 중심" />
     </div>
 
   </div>
@@ -213,24 +212,23 @@
 <!-- CTA SECTION -->
 <section class="section-cta-bg">
 
-  <div class="cta-overlay"></div>
+  <div class="cta-overlay" aria-hidden="true"></div>
 
   <div class="cta-inner">
 
     <p class="cta-kicker">Let's move together</p>
 
     <h2 class="cta-title">
-      함께 성장할 준비가<br>
-      되었다면
+      함께 성장할 준비가 되었다면
     </h2>
 
     <p class="cta-copy">
       INSIGHTWAVE는 함께 움직임을 만듭니다.
     </p>
 
-    <a href="#" class="cta-button">
+    <button class="cta-button" data-modal="contact">
       채용 및 파트너 문의
-    </a>
+    </button>
 
   </div>
 
@@ -241,7 +239,7 @@
     <div class="container">
 
       <div class="footer-brand">
-  <img src="./assets/images/logo_symbol_mix.webp" class="logo-icon" />
+  <img src="./assets/images/logo_symbol_mix.webp" class="logo-icon" alt="" />
   INSIGHTWAVE
 </div>
 
@@ -260,7 +258,7 @@
       </div>
       
       <div class="footer-line">
-        <span>문의 info@inwv.co</span>
+        <span>문의 support@inwv.co</span>
       </div>
 
       <div class="footer-copy">
@@ -269,6 +267,55 @@
 
     </div>
   </footer>
+<!-- 문의 모달 -->
+<div class="modal-overlay" id="contactModal">
+  <div class="modal-panel">
+    <button class="modal-close" aria-label="닫기">&times;</button>
+    <h2 class="modal-title">문의하기</h2>
+    <p class="modal-desc">채용 및 파트너 문의를 남겨주세요.</p>
+
+    <form class="modal-form" id="contactForm" novalidate>
+      <div class="form-group">
+        <label for="form-name">이름 <span class="required">*</span></label>
+        <input type="text" id="form-name" name="name" required placeholder="홍길동">
+      </div>
+
+      <div class="form-group">
+        <label for="form-email">이메일 <span class="required">*</span></label>
+        <input type="email" id="form-email" name="email" required placeholder="example@company.com">
+      </div>
+
+      <div class="form-group">
+        <label for="form-company">회사명</label>
+        <input type="text" id="form-company" name="company" placeholder="회사명 (선택)">
+      </div>
+
+      <div class="form-group">
+        <label for="form-type">문의 유형 <span class="required">*</span></label>
+        <select id="form-type" name="type" required>
+          <option value="" disabled selected>선택해주세요</option>
+          <option value="recruit">채용 문의</option>
+          <option value="partner">파트너 제안</option>
+          <option value="other">기타</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="form-message">문의 내용 <span class="required">*</span></label>
+        <textarea id="form-message" name="message" rows="4" required placeholder="문의 내용을 입력해주세요"></textarea>
+      </div>
+
+      <button type="submit" class="form-submit">문의 보내기</button>
+    </form>
+
+    <div class="modal-success" id="formSuccess">
+      <div class="success-icon">&#10003;</div>
+      <h3>문의가 접수되었습니다</h3>
+      <p>빠른 시일 내에 답변 드리겠습니다.</p>
+      <button class="form-submit" onclick="document.getElementById('contactModal').classList.remove('active'); document.body.style.overflow='';">확인</button>
+    </div>
+  </div>
+</div>
 <script src="./assets/js/main.js"></script>
 </body>
 </html>
