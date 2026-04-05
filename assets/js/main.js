@@ -234,7 +234,7 @@ if (dataSection) {
     submitBtn.textContent = '전송 중...';
     submitBtn.disabled = true;
 
-    fetch('https://script.google.com/macros/s/AKfycbwrx5tCXNzcRl5yylGEN8vjuWsyOt8FSPMXWsD0EfZuHiu7d-x1AqArsA-bhkb6Yg6j/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbxjDg6_7P1lTFh9n6W3Ad8KilWSDpWVSxsRBa8u6SSLapyl2pO_lyqAcJB4e4qhE77n/exec', {
       method: 'POST',
       body: JSON.stringify({
         name: form.querySelector('#form-name').value,
