@@ -190,6 +190,11 @@ body.light-surface .logo {
   box-shadow: 0 10px 24px rgba(191, 244, 238, 0.24);
 }
 
+/* Mobile CTA inside nav */
+.nav-cta-mobile {
+  display: none;
+}
+
 /* Hamburger toggle */
 .nav-toggle {
   display: none;
@@ -755,8 +760,8 @@ body.light-surface .nav-toggle span {
     top: auto;
     height: auto;
     flex-direction: column;
-    gap: 0;
-    padding: 0;
+    gap: 32px;
+    padding: 60px 24px;
   }
 
   .stack-text {
@@ -773,22 +778,35 @@ body.light-surface .nav-toggle span {
     transform: none !important;
     opacity: 1 !important;
     display: block !important;
-    padding: 48px 24px;
-    background: var(--bg-dark-2);
+    padding: 40px 0;
     border-bottom: 1px solid var(--line-light);
   }
 
   .stack-item h3 {
-    font-size: 24px;
+    font-size: 26px;
     margin-bottom: 12px;
   }
 
   .stack-image {
-    display: none !important;
+    flex: none;
+    width: 100%;
+    height: auto;
   }
 
-  .stack-item h3 {
-    font-size: 26px;
+  .stack-image img {
+    position: relative !important;
+    top: auto !important;
+    transform: none !important;
+    opacity: 1 !important;
+    display: block !important;
+    max-width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+
+  .stack-image img:not(:first-child) {
+    display: none !important;
   }
 }
 
@@ -1066,6 +1084,21 @@ body.light-surface .nav-link:hover {
 
   .nav-link::after {
     display: none;
+  }
+
+  .nav-cta-mobile {
+    display: block;
+    margin: 8px 24px 12px;
+    padding: 14px;
+    border: none;
+    border-radius: 999px;
+    background: var(--mint);
+    color: var(--text-dark);
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
   }
 
   .hero-title {
