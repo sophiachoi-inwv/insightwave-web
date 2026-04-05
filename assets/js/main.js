@@ -229,9 +229,33 @@ if (dataSection) {
 
     if (!valid) return;
 
-    // 성공 표시
-    form.style.display = 'none';
-    success.style.display = 'block';
+    // Google Sheets로 전송
+    const submitBtn = form.querySelector('.form-submit');
+    submitBtn.textContent = '전송 중...';
+    submitBtn.disabled = true;
+
+    fetch('https://script.google.com/macros/s/AKfycbwrx5tCXNzcRl5yylGEN8vjuWsyOt8FSPMXWsD0EfZuHiu7d-x1AqArsA-bhkb6Yg6j/exec', {
+      method: 'POST',
+      body: JSON.stringify({
+        name: form.querySelector('#form-name').value,
+        email: form.querySelector('#form-email').value,
+        company: form.querySelector('#form-company').value,
+        type: form.querySelector('#form-type').value,
+        message: form.querySelector('#form-message').value
+      })
+    })
+    .then(() => {
+      form.style.display = 'none';
+      success.style.display = 'block';
+    })
+    .catch(() => {
+      form.style.display = 'none';
+      success.style.display = 'block';
+    })
+    .finally(() => {
+      submitBtn.textContent = '문의 보내기';
+      submitBtn.disabled = false;
+    });
   });
 
   // 모달 닫힐 때 폼 리셋
